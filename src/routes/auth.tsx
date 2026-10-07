@@ -52,12 +52,10 @@ function AuthPage() {
   async function google() {
     setBusy(true);
     try {
-      // Use Supabase's native OAuth flow directly instead of Lovable's cloud
-      // auth broker (@lovable.dev/cloud-auth-js), which redirects to
-      // /~oauth/initiate — a route that only exists on Lovable's own hosted
-      // platform. Locally, that route 404s. signInWithOAuth below redirects
-      // the browser straight to Supabase's hosted authorize endpoint, which
-      // then redirects to Google and back to `redirectTo` — no broker needed.
+      // Use Supabase's native OAuth flow directly instead of a cloud auth broker
+      // which would redirect to a route that only exists on hosted platforms.
+      // signInWithOAuth below redirects the browser straight to Supabase's hosted
+      // authorize endpoint, which then redirects to Google and back to `redirectTo`.
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
