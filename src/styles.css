@@ -1,0 +1,223 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * UNIE — Serious & Academic design system.
+ * Ivory paper, deep navy ink, muted crimson accent, serif headings.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-rule: var(--rule);
+  --font-serif: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Playground-specific theme extensions */
+  --color-playground-bg: var(--playground-bg);
+  --color-playground-card: var(--playground-card);
+  --color-playground-border: var(--playground-border);
+  --color-playground-ink: var(--playground-ink);
+  --color-playground-muted: var(--playground-muted);
+  --color-playground-focus: var(--playground-focus);
+  --color-playground-focus-ring: var(--playground-focus-ring);
+}
+
+:root {
+  --radius: 0.375rem;
+
+  /* Ivory paper background */
+  --paper: oklch(0.975 0.008 85);
+  --background: oklch(0.975 0.008 85);
+  --foreground: oklch(0.22 0.03 250);
+
+  --ink: oklch(0.22 0.03 250);
+  --rule: oklch(0.85 0.01 250);
+
+  --card: oklch(0.99 0.005 85);
+  --card-foreground: oklch(0.22 0.03 250);
+  --popover: oklch(0.99 0.005 85);
+  --popover-foreground: oklch(0.22 0.03 250);
+
+  /* Deep navy primary */
+  --primary: oklch(0.28 0.05 255);
+  --primary-foreground: oklch(0.975 0.008 85);
+
+  --secondary: oklch(0.93 0.012 85);
+  --secondary-foreground: oklch(0.28 0.05 255);
+
+  --muted: oklch(0.93 0.012 85);
+  --muted-foreground: oklch(0.48 0.02 250);
+
+  /* Muted crimson accent */
+  --accent: oklch(0.48 0.14 25);
+  --accent-foreground: oklch(0.975 0.008 85);
+
+  --destructive: oklch(0.5 0.2 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: oklch(0.87 0.012 250);
+  --input: oklch(0.87 0.012 250);
+  --ring: oklch(0.48 0.14 25);
+
+  /* Playground Light Theme */
+  --playground-bg: oklch(0.985 0.005 85);
+  --playground-card: oklch(1 0 0);
+  --playground-border: oklch(0.88 0.01 250);
+  --playground-ink: oklch(0.18 0.025 255);
+  --playground-muted: oklch(0.94 0.01 250);
+  --playground-focus: oklch(0.28 0.05 255);
+  --playground-focus-ring: oklch(0.48 0.14 25);
+}
+
+.dark {
+  /* Dark mode base */
+  --paper: oklch(0.12 0.01 250);
+  --background: oklch(0.12 0.01 250);
+  --foreground: oklch(0.95 0.005 85);
+  --ink: oklch(0.95 0.005 85);
+  --rule: oklch(0.25 0.01 250);
+  --card: oklch(0.15 0.01 250);
+  --card-foreground: oklch(0.95 0.005 85);
+  --popover: oklch(0.15 0.01 250);
+  --popover-foreground: oklch(0.95 0.005 85);
+  --primary: oklch(0.65 0.08 255);
+  --primary-foreground: oklch(0.12 0.01 250);
+  --secondary: oklch(0.22 0.015 250);
+  --secondary-foreground: oklch(0.95 0.005 85);
+  --muted: oklch(0.22 0.015 250);
+  --muted-foreground: oklch(0.65 0.02 250);
+  --accent: oklch(0.55 0.16 25);
+  --accent-foreground: oklch(0.12 0.01 250);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.25 0.015 250);
+  --input: oklch(0.25 0.015 250);
+  --ring: oklch(0.55 0.16 25);
+
+  /* Playground Dark Theme */
+  --playground-bg: oklch(0.1 0.01 250);
+  --playground-card: oklch(0.14 0.01 250);
+  --playground-border: oklch(0.22 0.015 250);
+  --playground-ink: oklch(0.96 0.005 85);
+  --playground-muted: oklch(0.18 0.015 250);
+  --playground-focus: oklch(0.65 0.08 255);
+  --playground-focus-ring: oklch(0.55 0.16 25);
+}
+
+.playground-focus {
+  /* Focus mode: ultra-minimal, distraction-free */
+  --playground-bg: oklch(0.99 0.002 85);
+  --playground-card: oklch(1 0 0);
+  --playground-border: oklch(0.92 0.008 250);
+  --playground-ink: oklch(0.15 0.02 255);
+  --playground-muted: oklch(0.96 0.005 85);
+  --playground-focus: oklch(0.28 0.05 255);
+  --playground-focus-ring: oklch(0.48 0.14 25);
+}
+
+.dark .playground-focus {
+  --playground-bg: oklch(0.08 0.008 250);
+  --playground-card: oklch(0.12 0.008 250);
+  --playground-border: oklch(0.18 0.012 250);
+  --playground-ink: oklch(0.97 0.003 85);
+  --playground-muted: oklch(0.14 0.01 250);
+  --playground-focus: oklch(0.65 0.08 255);
+  --playground-focus-ring: oklch(0.55 0.16 25);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    font-family: var(--font-sans);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-serif {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Playground-specific utilities */
+.playground-theme {
+  background-color: var(--color-playground-bg);
+  color: var(--color-playground-ink);
+}
+
+.playground-card {
+  background-color: var(--color-playground-card);
+  border-color: var(--color-playground-border);
+  border-width: 1px;
+  border-style: solid;
+}
+
+.playground-border {
+  border-color: var(--color-playground-border);
+}
+
+.playground-ink {
+  color: var(--color-playground-ink);
+}
+
+.playground-muted {
+  color: var(--color-playground-muted);
+}
+
+.playground-focus-ring:focus-visible {
+  outline: none;
+  ring: 2px;
+  ring-color: var(--color-playground-focus-ring);
+  ring-offset: 2px;
+  ring-offset-color: var(--color-playground-card);
+}
+
+/* Print styles for PDF export */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .playground-theme {
+    background: white !important;
+    color: black !important;
+  }
+  .playground-card {
+    box-shadow: none !important;
+    border: 1px solid #e5e5e5 !important;
+  }
+}
